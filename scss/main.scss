@@ -1,0 +1,102 @@
+$mainColor: #ecf0f1;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Roboto, Tahoma;
+}
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden
+    }   
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-transform: capitalize;
+    min-height: 10vh;
+    background-color: #f5a7a7;
+    .logo {
+        font-size: 21px;
+        color: $mainColor;
+        letter-spacing: 4px;
+    }
+    .nav-links {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        width: 40%;
+        a {
+            text-decoration: none;
+            color: #3498db;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .nav-links {
+            position: absolute;
+            right: 0;
+            height: 90vh;
+            top: 10vh;
+            width: 100%;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: column;
+            background-color: #34495e;
+            transform: translateX(100%);
+            transition: all .8s ease-in-out;
+            li {
+                opacity: 0;
+                a {
+                    color: $mainColor;
+                }
+            }
+        }
+    }
+    .burger {
+        cursor: pointer;
+        display: none;
+        div {
+            width: 33px;
+            height: 4px;
+            margin: 5px;
+            background-color: $mainColor;
+            border-radius: 3px;
+            transition: transform .5s ease-in-out;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .burger {
+            display: block;
+        }
+    }
+}
+.nav-active {
+    transform: translateX(0) !important;
+}
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px) !important;
+}
+.toggle .line2 {
+    opacity: 0
+}
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px) !important;
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
